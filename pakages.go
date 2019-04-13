@@ -3,9 +3,15 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	"os"
 )
 
 func main() {
-	fmt.Println("My favorite number is", rand.Intn(10))
+	var s, sep string
+	for i := 1; i < len(os.Args); i++ {
+		s += sep + os.Args[i]
+		sep = " "
+	}
+	fmt.Printf(s)
+
 }
